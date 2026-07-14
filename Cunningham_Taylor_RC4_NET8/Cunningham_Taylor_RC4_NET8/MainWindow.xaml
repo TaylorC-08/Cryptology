@@ -1,0 +1,59 @@
+﻿<Window x:Class="Cunningham_Taylor_RC4_NET8.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cunningham_Taylor_RC4_NET8"
+        mc:Ignorable="d"
+        Title="RC4 " Height="620" Width="800">
+    <Grid>
+        <TabControl Margin="10">
+            <TabItem Header="Encryption">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="170"/>
+                        <RowDefinition Height="170"/>
+                        <RowDefinition Height="170"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Content="Key: "/>
+                    <Label Grid.Column="0" Grid.Row="1" Content="Plaintext: "/>
+                    <Label Grid.Column="0" Grid.Row="2" Content="Ciphertext: "/>
+                    <Label Grid.Column="0" Grid.Row="3" Content="Keystream: "/>
+                    <TextBox Grid.Column="1" Grid.Row="0" Margin="5" TextWrapping="Wrap" x:Name="EncryptKey"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" x:Name="txtPlainE" TextChanged="txtPlainE_TextChanged"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" x:Name="txtCipherE" IsReadOnly="True"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" x:Name="txtKeystreamE" IsReadOnly="True"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Decryption">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="170"/>
+                        <RowDefinition Height="170"/>
+                        <RowDefinition Height="170"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Column="0" Grid.Row="0" Content="Key: "/>
+                    <Label Grid.Column="0" Grid.Row="1" Content="Ciphertext: "/>
+                    <Label Grid.Column="0" Grid.Row="2" Content="Plaintext: "/>
+                    <Label Grid.Column="0" Grid.Row="3" Content="Keystream: "/>
+                    <TextBox Grid.Column="1" Grid.Row="0" Margin="5" TextWrapping="Wrap" x:Name="DecryptKey"/>
+                    <TextBox Grid.Column="1" Grid.Row="1" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" x:Name="txtCipherD" TextChanged="txtCipherD_TextChanged" PreviewTextInput="txtCipherD_PreviewTextInput"/>
+                    <TextBox Grid.Column="1" Grid.Row="2" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" x:Name="txtPlainD" IsReadOnly="True"/>
+                    <TextBox Grid.Column="1" Grid.Row="3" Margin="5" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" x:Name="txtKeystreamD" IsReadOnly="True"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

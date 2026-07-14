@@ -1,0 +1,65 @@
+﻿<Window x:Class="Cunningham_Taylor_Programming3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Cunningham_Taylor_Programming3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" Grid.Column="0" Grid.RowSpan="3" x:Name="Dat" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" IsReadOnly="True" Margin="10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Left Column" Binding="{Binding Rows}"/>
+                <DataGridTextColumn Header="Right Column" Binding="{Binding Columns}"/>
+                <DataGridTextColumn Header="Centiban Sum" Binding="{Binding Centiban}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <!-- https://learn.microsoft.com/en-us/dotnet/desktop/wpf/controls/tabcontrol -->
+        <TabControl Grid.Row="0" Grid.RowSpan="3" Grid.Column="1" Margin="10">
+            <TabItem Header="Ciphertext">
+                <TextBox x:Name="txtCipher" TextWrapping ="Wrap" Text ="Insert text." TextChanged="txtCipher_TextChanged"/>
+            </TabItem>
+            <TabItem Header="Rectangles and Vowels">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <DataGrid Grid.Row="0" Grid.RowSpan="3" Grid.Column="3" Margin="10" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" IsReadOnly="True" Name="RectanglesVowels" MouseDoubleClick="RectanglesVowels_Selected">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="# of rows" Binding="{Binding Rows}"/>
+                            <DataGridTextColumn Header="# of columns" Binding="{Binding Columns}"/>
+                            <DataGridTextColumn Header="Vowel difference" Binding="{Binding Vowels}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="CmdAutoSolve" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Content="Auto Solve" Margin="10" Click="Button_Click"/>
+                    <Button x:Name="CentibanAutoSolve" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Content="Solve Centiban" Margin="0,50" Click="CentibanAutoSolve_Click"/>
+                    <TextBox Text="Double click on a row to select the rectangle." TextWrapping="Wrap" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" IsReadOnly="True" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Centiban and columns">
+                <DataGrid VerticalScrollBarVisibility="Auto" IsReadOnly="True" Name="CentibanCol" AutoGenerateColumns="True" ColumnReordered="CentibanCol_ColumnReordered"/>
+            </TabItem>
+            <TabItem Header="Plaintext">
+                <TextBox x:Name="txtPlain" TextWrapping ="Wrap"/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

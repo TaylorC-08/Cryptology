@@ -1,0 +1,53 @@
+﻿<Window x:Class="Taylor_Affine1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Taylor_Affine1"
+        mc:Ignorable="d"
+        Title="Affine assignment 1" Height="530" Width="720">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="140" />
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10"/>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1" Grid.Row="1" Text="A: "/>
+        <TextBlock Grid.Column="1" Grid.Row="3" Text="B: "/>
+        <TextBlock Grid.Column="1" Grid.Row="5" Text="Plaintext: "/>
+        <TextBlock Grid.Column="1" Grid.Row="7" Text="Ciphertext: "/>
+
+        <TextBox x:Name="txtA" Grid.Column="2" Grid.Row="1" />
+        <TextBox x:Name="txtB" Grid.Column="2" Grid.Row="3" />
+        <TextBox x:Name="txtPlain" TextWrapping="Wrap" Grid.Column="2" Grid.Row="5" />
+        <TextBox x:Name="txtCipher" TextWrapping="Wrap" Grid.Column="2" Grid.Row="7" />
+
+        <Button x:Name="cmdEncrypt" Grid.Column ="4" Grid.Row="5" Content="Encrypt" Click="cmdEncrypt_Click"/>
+        <Button x:Name="cmdDecrypt" Grid.Column ="4" Grid.Row="7" Content="Decrypt" Click="cmdDecrypt_Click"/>
+        <Button x:Name="cmdPlainOpen" Grid.Column="6" Grid.Row="5" Content="Open Plaintext file" Click="cmdPlainOpen_Click" />
+        <Button x:Name="cmdCipherOpen" Grid.Column="6" Grid.Row="7" Content="Open Ciphertext file" Click="cmdCipherOpen_Click" />
+        <Button x:Name="cmdSave" Grid.Column="2" Grid.Row="9" Content="Save data to text file" Click="cmdSave_Click" />
+
+        <Label x:Name="lblError" Grid.Column="4" Grid.Row="1" Grid.RowSpan="3"  Content=""></Label>
+    </Grid>
+</Window>
